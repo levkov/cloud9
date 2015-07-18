@@ -9,7 +9,9 @@ RUN apt-get update &&\
 WORKDIR /cloud9
 RUN scripts/install-sdk.sh && \
     sed -i -e 's_127.0.0.1_0.0.0.0_g' /cloud9/configs/standalone.js && \
-    mkdir /workspace
+    mkdir /workspace && \
+    apt-get update && apt-get install -y nodejs-legacy && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 ADD conf/cloud9.conf /etc/supervisor/conf.d/
 
