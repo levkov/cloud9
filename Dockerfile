@@ -2,7 +2,7 @@ FROM levkov/base:latest
 MAINTAINER levkov
 
 RUN apt-get update &&\
-    apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs wget nodejs npm && \
+    apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs nodejs npm && \
     git clone https://github.com/c9/core.git /cloud9 && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
